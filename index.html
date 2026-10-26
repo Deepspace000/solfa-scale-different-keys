@@ -1446,7 +1446,6 @@ function renderScaleSystem(host, part, isLast, W, rows) {
   const svg = div.querySelector('svg');
   const defs = { solfa: ['t-solfa', 'solfa'], name: ['t-name', 'note'], num: ['t-num', 'no.'] };
   rows.forEach((r, ri) => svgEl('text', { x: 6, y: labelY0 + ri * rowH, class: 't-tag' }, svg).textContent = defs[r][1]);
-  if (showHand) svgEl('text', { x: 6, y: 4 + hh, class: 't-tag' }, svg).textContent = 'hand';
   const xs = notes.map(n => (n.getNoteHeadBeginX() + n.getNoteHeadEndX()) / 2);
   let gap = Infinity; for (let i = 1; i < xs.length; i++) gap = Math.min(gap, xs[i] - xs[i - 1]);
   const dw = Math.max(20, Math.min(hw, Math.round(gap - 6))), dh = Math.round(dw * 0.82);   // never wider than the room between notes
